@@ -1,0 +1,91 @@
+{
+    "type": "object",
+    "properties": {
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "ExternalStoreRequest",
+            "properties": {
+                "type": {
+                    "description": "store Type",
+                    "type": "string",
+                    "enum": [
+                        "googleplay",
+                        "intune",
+                        "apple"
+                    ]
+                },
+                "name": {
+                    "description": "name of the store. In case of googleplay, and Apple store this is fixed to Production.",
+                    "type": "string"
+                },
+                "track": {
+                    "description": "track of the store. Can be production, alpha & beta for googleplay. Can be production, testflight-internal & testflight-external for Apple Store.",
+                    "type": "string",
+                    "enum": [
+                        "production",
+                        "alpha",
+                        "beta",
+                        "testflight-internal",
+                        "testflight-external"
+                    ]
+                },
+                "intune_details": {
+                    "properties": {
+                        "secret_json": {
+                            "properties": {
+                                "id_token": {
+                                    "description": "the id token of user",
+                                    "type": "string"
+                                },
+                                "refresh_token": {
+                                    "description": "the refresh token for user",
+                                    "type": "string"
+                                },
+                                "refresh_token_expiry": {
+                                    "description": "the expiry of refresh token",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "target_audience": {
+                            "properties": {
+                                "name": {
+                                    "description": "display name for the target audience/group",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "app_category": {
+                            "properties": {
+                                "name": {
+                                    "description": "display name for the app category",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "tenant_id": {
+                            "description": "tenant id of the intune store",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "service_connection_id": {
+                    "description": "Id for the shared service connection. In case of Apple AppStore, this connection will be used to create and connect to the Apple AppStore in Mobile Center.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

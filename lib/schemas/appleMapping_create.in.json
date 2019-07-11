@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Apple Mapping Request Type",
+            "properties": {
+                "service_connection_id": {
+                    "description": "Id for the shared service connection. In case of Apple AppStore, this connection will be used to create and connect to the Apple AppStore in Mobile Center.",
+                    "type": "string"
+                },
+                "apple_id": {
+                    "description": "ID of the apple application in apple store, takes precedence over bundle_identifier when both are provided",
+                    "type": "string"
+                },
+                "bundle_identifier": {
+                    "description": "Bundle Identifier of the apple package",
+                    "type": "string"
+                },
+                "team_identifier": {
+                    "description": "ID of the Team associated with the app in apple store",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "service_connection_id",
+                "team_identifier"
+            ],
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "branch": {
+            "required": true,
+            "type": "string"
+        },
+        "os": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "iOS",
+                "Android",
+                "Windows",
+                "macOS"
+            ]
+        },
+        "platform": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "Objective-C-Swift",
+                "React-Native",
+                "Xamarin",
+                "Java",
+                "UWP"
+            ]
+        },
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

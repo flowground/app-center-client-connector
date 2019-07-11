@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Generic notification configuration. Is a base type and caller should choose one of the derived types specified in the enum.",
+            "type": "object",
+            "discriminator": {
+                "propertyName": "type"
+            },
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "apns_token_config",
+                        "gcm_config",
+                        "wns_config"
+                    ]
+                }
+            },
+            "required": [
+                "type"
+            ]
+        }
+    }
+}

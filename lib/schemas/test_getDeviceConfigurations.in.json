@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "app_upload_id": {
+            "required": false,
+            "type": "string",
+            "format": "uuid"
+        },
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

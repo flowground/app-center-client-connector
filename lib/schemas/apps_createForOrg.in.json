@@ -1,0 +1,64 @@
+{
+    "type": "object",
+    "properties": {
+        "org_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "description": {
+                    "description": "A short text describing the app",
+                    "type": "string"
+                },
+                "release_type": {
+                    "description": "A one-word descriptive release-type value that starts with a capital letter but is otherwise lowercase",
+                    "type": "string"
+                },
+                "display_name": {
+                    "description": "The descriptive name of the app. This can contain any characters",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the app used in URLs",
+                    "type": "string"
+                },
+                "os": {
+                    "description": "The OS the app will be running on",
+                    "type": "string",
+                    "enum": [
+                        "Android",
+                        "iOS",
+                        "macOS",
+                        "Tizen",
+                        "tvOS",
+                        "Windows",
+                        "Linux"
+                    ]
+                },
+                "platform": {
+                    "description": "The platform of the app",
+                    "type": "string",
+                    "enum": [
+                        "Java",
+                        "Objective-C-Swift",
+                        "UWP",
+                        "Cordova",
+                        "React-Native",
+                        "Xamarin",
+                        "Unity",
+                        "Electron",
+                        "WPF",
+                        "WinForms"
+                    ]
+                }
+            },
+            "required": [
+                "display_name",
+                "os",
+                "platform"
+            ],
+            "type": "object"
+        }
+    }
+}

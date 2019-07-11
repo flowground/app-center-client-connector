@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+        "org_name": {
+            "required": true,
+            "type": "string"
+        },
+        "email": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "role": {
+                    "description": "The role of the user to be added",
+                    "type": "string",
+                    "enum": [
+                        "admin",
+                        "collaborator",
+                        "member"
+                    ]
+                }
+            },
+            "type": "object"
+        }
+    }
+}

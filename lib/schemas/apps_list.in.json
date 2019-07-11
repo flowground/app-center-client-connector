@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "properties": {
+        "_orderBy": {
+            "type": "string",
+            "enum": [
+                "display_name",
+                "name"
+            ]
+        }
+    }
+}

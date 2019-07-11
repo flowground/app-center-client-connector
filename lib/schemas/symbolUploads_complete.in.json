@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "properties": {
+        "symbol_upload_id": {
+            "required": true,
+            "type": "string"
+        },
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "A request containing information pertaining to completing a symbol upload process",
+            "properties": {
+                "status": {
+                    "description": "The desired operation for the symbol upload",
+                    "type": "string",
+                    "enum": [
+                        "committed",
+                        "aborted"
+                    ]
+                }
+            },
+            "required": [
+                "status"
+            ],
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "device_udid": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "A request containing information pertaining to begin a release upload process",
+            "properties": {
+                "release_id": {
+                    "description": "The ID of the release.",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

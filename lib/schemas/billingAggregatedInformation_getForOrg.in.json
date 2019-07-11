@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "orgName": {
+            "required": true,
+            "type": "string",
+            "format": "string"
+        },
+        "service": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Test",
+                "Build"
+            ]
+        },
+        "period": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "Previous",
+                "Current",
+                "Next"
+            ]
+        },
+        "showOriginalPlans": {
+            "required": false,
+            "type": "boolean"
+        }
+    }
+}

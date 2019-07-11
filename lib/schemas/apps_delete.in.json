@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

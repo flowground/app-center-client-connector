@@ -1,0 +1,58 @@
+{
+    "type": "object",
+    "properties": {
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Export configuration",
+            "type": "object",
+            "discriminator": {
+                "propertyName": "type"
+            },
+            "properties": {
+                "type": {
+                    "description": "Type of export configuration",
+                    "type": "string",
+                    "enum": [
+                        "blob_storage_connection_string",
+                        "application_insights_instrumentation_key",
+                        "blob_storage_linked_subscription",
+                        "application_insights_linked_subscription"
+                    ]
+                },
+                "export_entities": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "crashes",
+                            "errors",
+                            "attachments"
+                        ],
+                        "x-ms-enum": {
+                            "name": "ExportEntity",
+                            "modelAsString": false
+                        }
+                    }
+                },
+                "resource_name": {
+                    "type": "string",
+                    "description": "The resource name on azure"
+                },
+                "resource_group": {
+                    "type": "string",
+                    "description": "The resource group name on azure"
+                }
+            },
+            "required": [
+                "type"
+            ]
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "org_name": {
+            "required": true,
+            "type": "string"
+        },
+        "team_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "name": {
+                    "description": "The name of the app to be added to the distribution group",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "type": "object"
+        }
+    }
+}

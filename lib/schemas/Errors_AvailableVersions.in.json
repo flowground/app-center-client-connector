@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+        "start": {
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+        },
+        "end": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "errorType": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "all",
+                "unhandledError",
+                "handledError"
+            ]
+        },
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0,
+            "maximum": 2000,
+            "default": 30
+        },
+        "_skip": {
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0,
+            "default": 0
+        },
+        "_filter": {
+            "required": false,
+            "type": "string",
+            "format": "string"
+        },
+        "_inlinecount": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "allpages",
+                "none"
+            ],
+            "default": "none"
+        }
+    }
+}

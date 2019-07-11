@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Generic export configuration.",
+            "type": "object",
+            "properties": {
+                "blob_container_sas_uri": {
+                    "type": "string",
+                    "description": "A shared access signature (SAS) URI with Read, Write and Delete permissions on a container."
+                }
+            },
+            "required": [
+                "blob_container_sas_uri"
+            ]
+        }
+    }
+}

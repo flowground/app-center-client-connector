@@ -1,0 +1,49 @@
+{
+    "type": "object",
+    "properties": {
+        "test_run_id": {
+            "required": true,
+            "type": "string"
+        },
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "array",
+            "items": {
+                "title": "Test Cloud File Hash",
+                "description": "Hash, type, path and byte range of a file that is required in test run",
+                "type": "object",
+                "properties": {
+                    "fileType": {
+                        "type": "string",
+                        "description": "Type of the file",
+                        "enum": [
+                            "dsym-file",
+                            "app-file",
+                            "test-file"
+                        ]
+                    },
+                    "checksum": {
+                        "type": "string",
+                        "description": "SHA256 hash of the file"
+                    },
+                    "relativePath": {
+                        "type": "string",
+                        "description": "Relative path of the file"
+                    }
+                },
+                "required": [
+                    "fileType",
+                    "checksum",
+                    "relativePath"
+                ]
+            }
+        }
+    }
+}

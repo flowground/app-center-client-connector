@@ -1,0 +1,49 @@
+{
+    "type": "object",
+    "properties": {
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "A request containing information pertaining to starting a symbol upload process",
+            "properties": {
+                "symbol_type": {
+                    "description": "The type of the symbol for the current symbol upload",
+                    "type": "string",
+                    "enum": [
+                        "Apple",
+                        "JavaScript",
+                        "Breakpad",
+                        "AndroidProguard",
+                        "UWP"
+                    ]
+                },
+                "client_callback": {
+                    "description": "The callback URL that the client can optionally provide to get status updates for the current symbol upload",
+                    "type": "string"
+                },
+                "file_name": {
+                    "description": "The file name for the symbol upload",
+                    "type": "string"
+                },
+                "build": {
+                    "description": "The build number. Optional for Apple. Required for Android.",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "The version number. Optional for Apple. Required for Android.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "symbol_type"
+            ],
+            "type": "object"
+        }
+    }
+}

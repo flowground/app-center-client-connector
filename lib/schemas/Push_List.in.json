@@ -1,0 +1,44 @@
+{
+    "type": "object",
+    "properties": {
+        "include_archived": {
+            "required": false,
+            "type": "boolean"
+        },
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0,
+            "maximum": 2000,
+            "default": 30
+        },
+        "_skiptoken": {
+            "required": false,
+            "type": "string",
+            "format": "string"
+        },
+        "_orderby": {
+            "required": false,
+            "type": "string",
+            "default": "count desc"
+        },
+        "_inlinecount": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "allpages",
+                "none"
+            ],
+            "default": "none"
+        }
+    }
+}

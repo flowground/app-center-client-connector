@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "api_token_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "properties": {
+        "org_name": {
+            "required": true,
+            "type": "string"
+        },
+        "team_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "user_email": {
+                    "description": "The user's email address",
+                    "type": "string"
+                },
+                "role": {
+                    "description": "The user's role",
+                    "type": "string",
+                    "enum": [
+                        "admin",
+                        "collaborator",
+                        "member"
+                    ]
+                }
+            },
+            "required": [
+                "user_email"
+            ],
+            "type": "object"
+        }
+    }
+}

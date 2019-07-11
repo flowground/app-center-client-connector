@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "org_name": {
+            "required": true,
+            "type": "string"
+        },
+        "aad_group_id": {
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+        }
+    }
+}

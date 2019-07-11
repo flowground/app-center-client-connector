@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "enable_forwarding": {
+                    "type": "boolean"
+                }
+            }
+        }
+    }
+}

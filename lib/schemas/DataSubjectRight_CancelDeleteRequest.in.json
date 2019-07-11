@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "description": "Email used for cancel delete with x-authz-bypass headers",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "email"
+            ]
+        }
+    }
+}

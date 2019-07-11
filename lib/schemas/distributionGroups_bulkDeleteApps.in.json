@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "org_name": {
+            "required": true,
+            "type": "string"
+        },
+        "distribution_group_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "apps": {
+                    "description": "The list of apps to delete from the distribution group",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "properties": {
+                            "name": {
+                                "description": "The name of the app to be deleted from the distribution group",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "name"
+                        ],
+                        "type": "object"
+                    }
+                }
+            },
+            "type": "object"
+        }
+    }
+}

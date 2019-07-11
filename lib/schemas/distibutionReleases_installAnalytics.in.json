@@ -1,0 +1,44 @@
+{
+    "type": "object",
+    "properties": {
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "releases": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "release_id": {
+                                "description": "release id",
+                                "type": "integer"
+                            },
+                            "distribution_group_id": {
+                                "description": "distribution group id",
+                                "type": "string"
+                            },
+                            "user_id": {
+                                "description": "user id",
+                                "type": "string",
+                                "format": "uuid"
+                            }
+                        },
+                        "required": [
+                            "release_id",
+                            "distribution_group_id",
+                            "user_id"
+                        ]
+                    }
+                }
+            },
+            "type": "object"
+        }
+    }
+}

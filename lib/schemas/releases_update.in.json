@@ -1,0 +1,92 @@
+{
+    "type": "object",
+    "properties": {
+        "release_id": {
+            "required": true,
+            "type": "integer"
+        },
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "A request containing information for updating a release.",
+            "properties": {
+                "distribution_group_name": {
+                    "description": "OBSOLETE. Will be removed in future releases - use destinations instead. Name of a distribution group. The release will be associated with this distribution group. If the distribution group doesn't exist a 400 is returned. If both distribution group name and id are passed, the id is taking precedence.\n",
+                    "type": "string"
+                },
+                "distribution_group_id": {
+                    "description": "OBSOLETE. Will be removed in future releases - use destinations instead. Id of a distribution group. The release will be associated with this distribution group. If the distribution group doesn't exist a 400 is returned. If both distribution group name and id are passed, the id is taking precedence.\n",
+                    "type": "string"
+                },
+                "destination_name": {
+                    "description": "OBSOLETE. Will be removed in future releases - use destinations instead. Name of a destination. The release will be associated with this destination. If the destination doesn't exist a 400 is returned. If both distribution group name and id are passed, the id is taking precedence.\n",
+                    "type": "string"
+                },
+                "destination_id": {
+                    "description": "OBSOLETE. Will be removed in future releases - use destinations instead. Id of a destination. The release will be associated with this destination. If the destination doesn't exist a 400 is returned. If both destination name and id are passed, the id is taking precedence.\n",
+                    "type": "string"
+                },
+                "destination_type": {
+                    "description": "Not used anymore.",
+                    "type": "string"
+                },
+                "release_notes": {
+                    "description": "Release notes for this release.",
+                    "type": "string"
+                },
+                "mandatory_update": {
+                    "description": "A boolean which determines whether this version should be a mandatory update or not.",
+                    "type": "boolean"
+                },
+                "destinations": {
+                    "description": "Distribute this release under the following list of destinations (store groups or distribution groups).",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "description": "A unique identifier for a destination. A destination can be identified by an ID (guid) or by a name. DestinationId encapsulates both options. A destination can be either a distribution group or a store.",
+                        "properties": {
+                            "name": {
+                                "description": "Name of a distribution group / distribution store. The release will be associated with this distribution group or store. If the distribution group / store doesn't exist a 400 is returned. If both distribution group / store name and id are passed, the id is taking precedence.",
+                                "type": "string"
+                            },
+                            "id": {
+                                "description": "Id of a distribution group / store. The release will be associated with this distribution group / store. If the distribution group / store doesn't exist a 400 is returned. If both distribution group / store name and id are passed, the id is taking precedence.",
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "build": {
+                    "type": "object",
+                    "description": "Contains metadata about the build that produced the release being uploaded",
+                    "properties": {
+                        "branch": {
+                            "description": "The branch name of the build producing the release",
+                            "type": "string"
+                        },
+                        "commit_hash": {
+                            "description": "The commit hash of the build producing the release",
+                            "type": "string"
+                        },
+                        "commit_message": {
+                            "description": "The commit message of the build producing the release",
+                            "type": "string"
+                        }
+                    }
+                },
+                "notify_testers": {
+                    "description": "A boolean which determines whether to notify testers of a new release, default to false.",
+                    "type": "boolean",
+                    "default": false
+                }
+            },
+            "type": "object"
+        }
+    }
+}

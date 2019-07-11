@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "org_name": {
+            "required": true,
+            "type": "string"
+        },
+        "distribution_group_name": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

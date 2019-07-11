@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "properties": {
+        "start": {
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+        },
+        "end": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "versions": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "appbuild": {
+            "required": false,
+            "type": "string",
+            "format": "string"
+        },
+        "errorType": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "unhandledError",
+                "handledError"
+            ]
+        },
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

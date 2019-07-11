@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "org_name": {
+            "required": true,
+            "type": "string"
+        },
+        "distribution_group_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "name": {
+                    "description": "The name of the distribution group",
+                    "type": "string"
+                },
+                "is_public": {
+                    "description": "Whether the distribution group is public",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

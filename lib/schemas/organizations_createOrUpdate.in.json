@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "display_name": {
+                    "description": "The display name of the organization",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the organization used in URLs",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

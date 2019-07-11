@@ -1,0 +1,59 @@
+{
+    "type": "object",
+    "properties": {
+        "filter": {
+            "required": false,
+            "type": "string",
+            "format": "string"
+        },
+        "q": {
+            "required": false,
+            "type": "string",
+            "format": "string"
+        },
+        "order": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "desc",
+                "asc"
+            ],
+            "default": "desc"
+        },
+        "sort": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "matchingReportsCount",
+                "exceptionClassName",
+                "exceptionMessage",
+                "exceptionMethod",
+                "lastOccurrence"
+            ],
+            "default": "matchingReportsCount"
+        },
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 100
+        },
+        "_skip": {
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0,
+            "default": 0
+        }
+    }
+}

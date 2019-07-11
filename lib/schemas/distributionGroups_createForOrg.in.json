@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "org_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "name": {
+                    "description": "The name of the distribution group",
+                    "type": "string"
+                },
+                "display_name": {
+                    "description": "The display name of the distribution group. If not specified, the name will be used.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "type": "object"
+        }
+    }
+}

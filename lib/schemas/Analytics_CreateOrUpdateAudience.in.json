@@ -1,0 +1,60 @@
+{
+    "type": "object",
+    "properties": {
+        "audience_name": {
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "maxLength": 64,
+            "pattern": "[^/]+"
+        },
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Audience definition.",
+            "type": "object",
+            "properties": {
+                "description": {
+                    "description": "Audience description.",
+                    "type": "string",
+                    "maxLength": 128
+                },
+                "definition": {
+                    "description": "Audience definition in OData format.",
+                    "type": "string",
+                    "maxLength": 2000
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "custom_properties": {
+                    "type": "object",
+                    "description": "Custom properties used in the definition.",
+                    "additionalProperties": {
+                        "type": "string",
+                        "enum": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "date_time"
+                        ],
+                        "x-ms-enum": {
+                            "name": "device_property_type",
+                            "modelAsString": false
+                        }
+                    }
+                }
+            },
+            "required": [
+                "definition"
+            ]
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "description": {
+                    "description": "A short text describing the app",
+                    "type": "string"
+                },
+                "display_name": {
+                    "description": "The display name of the app",
+                    "type": "string"
+                },
+                "release_type": {
+                    "description": "A one-word descriptive release type value that starts with a capital letter but is otherwise lowercase",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the app used in URLs",
+                    "type": "string"
+                },
+                "icon_url": {
+                    "description": "The string representation of the URL pointing to the app's icon",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

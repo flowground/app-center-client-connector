@@ -1,0 +1,49 @@
+{
+    "type": "object",
+    "properties": {
+        "release_id": {
+            "required": true,
+            "type": "integer"
+        },
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "A request containing information for updating details of a release",
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "description": "Toggle this release to be enable distribute/download or not.",
+                    "type": "boolean"
+                },
+                "release_notes": {
+                    "description": "Release notes for this release.",
+                    "type": "string"
+                },
+                "build": {
+                    "type": "object",
+                    "description": "Contains metadata about the build that produced the release being uploaded",
+                    "properties": {
+                        "branch": {
+                            "description": "The branch name of the build producing the release",
+                            "type": "string"
+                        },
+                        "commit_hash": {
+                            "description": "The commit hash of the build producing the release",
+                            "type": "string"
+                        },
+                        "commit_message": {
+                            "description": "The commit message of the build producing the release",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

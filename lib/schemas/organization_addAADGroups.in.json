@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "org_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "aad_group_id": {
+                    "description": "The id of the aad group",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "tenant_id": {
+                    "description": "The id of the aad tenant",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "display_name": {
+                    "description": "The display name of the aad group",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "aad_group_id",
+                "tenant_id",
+                "display_name"
+            ],
+            "type": "object"
+        }
+    }
+}

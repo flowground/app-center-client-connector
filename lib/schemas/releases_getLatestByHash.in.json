@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "app_secret": {
+            "required": true,
+            "type": "string"
+        },
+        "release_hash": {
+            "required": true,
+            "type": "string"
+        },
+        "udid": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

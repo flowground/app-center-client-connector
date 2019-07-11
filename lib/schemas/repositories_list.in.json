@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "source_host": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "github",
+                "bitbucket",
+                "vsts",
+                "gitlab"
+            ]
+        },
+        "vstsAccountName": {
+            "required": false,
+            "type": "string"
+        },
+        "vstsProjectId": {
+            "required": false,
+            "type": "string"
+        },
+        "form": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "lite",
+                "full"
+            ]
+        },
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

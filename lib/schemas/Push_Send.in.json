@@ -1,0 +1,91 @@
+{
+    "type": "object",
+    "properties": {
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Notification definition object",
+            "type": "object",
+            "properties": {
+                "notification_target": {
+                    "description": "Type of Notification target (audiences, devices, user ids or account ids). The object must include the correct properties for the specified target type.",
+                    "type": "object",
+                    "discriminator": {
+                        "propertyName": "type"
+                    },
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "enum": [
+                                "audiences_target",
+                                "devices_target",
+                                "user_ids_target",
+                                "account_ids_target"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ]
+                },
+                "notification_content": {
+                    "description": "Notification definition object",
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "description": "Notification name",
+                            "type": "string",
+                            "minLength": 3,
+                            "maxLength": 64
+                        },
+                        "title": {
+                            "description": "Notification title",
+                            "type": "string",
+                            "maxLength": 128
+                        },
+                        "body": {
+                            "description": "Notification body",
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 4000
+                        },
+                        "custom_data": {
+                            "description": "Notification custom data (such as badge, color, sound, etc.)",
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "body"
+                    ]
+                }
+            },
+            "example": {
+                "notification_target": {
+                    "type": "devices_target",
+                    "devices": [
+                        "146fbdde-0aaf-444d-bcc0-6d84520c9080",
+                        "746fbdde-0aaf-444d-bcc0-6d84520c9111"
+                    ]
+                },
+                "notification_content": {
+                    "name": "Transaction 23-09814",
+                    "title": "Sales Order Update",
+                    "body": "Sales order 18987 for customer Acme Dynamite status changed to SHIPPED"
+                }
+            },
+            "required": [
+                "notification_content"
+            ]
+        }
+    }
+}

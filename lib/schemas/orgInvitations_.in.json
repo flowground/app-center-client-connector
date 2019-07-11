@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "org_name": {
+            "required": true,
+            "type": "string"
+        },
+        "email": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

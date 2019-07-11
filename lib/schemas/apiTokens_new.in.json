@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the token"
+                },
+                "scope": {
+                    "description": "The scope for this token.",
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "all",
+                            "viewer"
+                        ]
+                    }
+                }
+            },
+            "type": "object"
+        }
+    }
+}

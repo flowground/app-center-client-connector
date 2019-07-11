@@ -1,0 +1,315 @@
+{
+    "type": "object",
+    "properties": {
+        "branch": {
+            "required": true,
+            "type": "string"
+        },
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The branch build configuration",
+            "properties": {
+                "trigger": {
+                    "type": "string",
+                    "enum": [
+                        "continous",
+                        "continuous",
+                        "manual"
+                    ]
+                },
+                "testsEnabled": {
+                    "type": "boolean"
+                },
+                "badgeIsEnabled": {
+                    "type": "boolean"
+                },
+                "signed": {
+                    "type": "boolean"
+                },
+                "cloneFromBranch": {
+                    "description": "A configured branch name to clone from. If provided, all other parameters will be ignored. Only supported in POST requests.",
+                    "type": "string"
+                },
+                "toolsets": {
+                    "description": "The branch build configuration for each toolset",
+                    "properties": {
+                        "xcode": {
+                            "description": "Build configuration when Xcode is part of the build steps",
+                            "properties": {
+                                "projectOrWorkspacePath": {
+                                    "description": "Xcode project/workspace path",
+                                    "type": "string"
+                                },
+                                "podfilePath": {
+                                    "description": "Path to CococaPods file, if present",
+                                    "type": "string"
+                                },
+                                "cartfilePath": {
+                                    "description": "Path to Carthage file, if present",
+                                    "type": "string"
+                                },
+                                "provisioningProfileEncoded": {
+                                    "type": "string"
+                                },
+                                "certificateEncoded": {
+                                    "type": "string"
+                                },
+                                "provisioningProfileFileId": {
+                                    "type": "string"
+                                },
+                                "certificateFileId": {
+                                    "type": "string"
+                                },
+                                "provisioningProfileUploadId": {
+                                    "type": "string"
+                                },
+                                "appExtensionProvisioningProfileFiles": {
+                                    "type": "array",
+                                    "items": {
+                                        "description": "Provisioning profile fetch and store information",
+                                        "properties": {
+                                            "fileName": {
+                                                "description": "Name of uploaded provisioning profile",
+                                                "type": "string"
+                                            },
+                                            "fileId": {
+                                                "description": "File id from secure file storage",
+                                                "type": "string"
+                                            },
+                                            "uploadId": {
+                                                "description": "Upload id to App Center File Upload Store",
+                                                "type": "string"
+                                            },
+                                            "targetBundleIdentifier": {
+                                                "description": "Target the provisioning profile is used to sign",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "certificateUploadId": {
+                                    "type": "string"
+                                },
+                                "certificatePassword": {
+                                    "type": "string"
+                                },
+                                "scheme": {
+                                    "type": "string"
+                                },
+                                "xcodeVersion": {
+                                    "type": "string",
+                                    "description": "Xcode version used to build. Available versions can be found in \"/xcode_versions\" API. Default is latest stable version, at the time when the configuration is set."
+                                },
+                                "provisioningProfileFilename": {
+                                    "type": "string"
+                                },
+                                "certificateFilename": {
+                                    "type": "string"
+                                },
+                                "teamId": {
+                                    "type": "string"
+                                },
+                                "automaticSigning": {
+                                    "type": "boolean"
+                                },
+                                "xcodeProjectSha": {
+                                    "type": "string",
+                                    "description": "The selected pbxproject hash to the repositroy"
+                                },
+                                "archiveConfiguration": {
+                                    "type": "string",
+                                    "description": "The build configuration of the target to archive"
+                                },
+                                "targetToArchive": {
+                                    "type": "string",
+                                    "description": "The target id of the selected scheme to archive"
+                                },
+                                "forceLegacyBuildSystem": {
+                                    "type": "boolean",
+                                    "description": "Setting this to true forces the build to use Xcode legacy build system. Otherwise, the setting from workspace settings is used.\nBy default new build system is used if workspace setting is not committed to the repository. Only used for iOS React Native app, with Xcode 10.\n",
+                                    "default": false
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "javascript": {
+                            "description": "Build configuration when React Native, or other JavaScript tech, is part of the build steps",
+                            "properties": {
+                                "packageJsonPath": {
+                                    "description": "Path to package.json file for the main project, e.g. \"package.json\" or \"myapp/package.json\"",
+                                    "type": "string"
+                                },
+                                "runTests": {
+                                    "description": "Whether to run Jest unit tests, via npm test, during the build",
+                                    "type": "boolean",
+                                    "default": true
+                                },
+                                "reactNativeVersion": {
+                                    "description": "Version of React Native from package.json files",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "xamarin": {
+                            "description": "Build configuration for Xamarin projects",
+                            "properties": {
+                                "slnPath": {
+                                    "type": "string"
+                                },
+                                "isSimBuild": {
+                                    "type": "boolean"
+                                },
+                                "args": {
+                                    "type": "string"
+                                },
+                                "configuration": {
+                                    "type": "string"
+                                },
+                                "p12File": {
+                                    "type": "string"
+                                },
+                                "p12Pwd": {
+                                    "type": "string"
+                                },
+                                "provProfile": {
+                                    "type": "string"
+                                },
+                                "monoVersion": {
+                                    "type": "string"
+                                },
+                                "sdkBundle": {
+                                    "type": "string"
+                                },
+                                "symlink": {
+                                    "description": "Symlink of the SDK Bundle and Mono installation.\nThe build will use the associated Mono bundled with related Xamarin SDK. If both symlink and monoVersion or sdkBundle are passed, the symlink is taking precedence. If non-existing symlink is passed, the current stable Mono version will be configured for building.\n",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "android": {
+                            "description": "Build configuration for Android projects",
+                            "properties": {
+                                "gradleWrapperPath": {
+                                    "description": "Path to the Gradle wrapper script",
+                                    "type": "string",
+                                    "example": "android/gradlew"
+                                },
+                                "module": {
+                                    "description": "The Gradle module to build",
+                                    "type": "string",
+                                    "example": "app"
+                                },
+                                "buildVariant": {
+                                    "description": "The Android build variant to build",
+                                    "type": "string",
+                                    "example": "release"
+                                },
+                                "runTests": {
+                                    "description": "Whether to run unit tests during the build (default)",
+                                    "type": "boolean",
+                                    "default": true
+                                },
+                                "runLint": {
+                                    "description": "Whether to run lint checks during the build (default)",
+                                    "type": "boolean",
+                                    "default": true
+                                },
+                                "isRoot": {
+                                    "description": "Whether it is the root module or not",
+                                    "type": "boolean",
+                                    "default": true
+                                },
+                                "automaticSigning": {
+                                    "description": "Whether to apply automatic signing or not",
+                                    "type": "boolean",
+                                    "default": true
+                                },
+                                "keystorePassword": {
+                                    "description": "The password of the keystore",
+                                    "type": "string"
+                                },
+                                "keyAlias": {
+                                    "description": "The key alias",
+                                    "type": "string"
+                                },
+                                "keyPassword": {
+                                    "description": "The key password",
+                                    "type": "string"
+                                },
+                                "keystoreFilename": {
+                                    "description": "The name of the keystore file",
+                                    "type": "string"
+                                },
+                                "keystoreEncoded": {
+                                    "description": "The keystore encoded value",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                },
+                "artifactVersioning": {
+                    "description": "The versioning configuration for artifacts built for this branch",
+                    "properties": {
+                        "buildNumberFormat": {
+                            "type": "string",
+                            "enum": [
+                                "buildId",
+                                "timestamp"
+                            ]
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "additionalProperties": {
+                "description": "The branch build core properties",
+                "properties": {
+                    "branch": {
+                        "properties": {
+                            "name": {
+                                "description": "The branch name",
+                                "type": "string"
+                            },
+                            "commit": {
+                                "properties": {
+                                    "sha": {
+                                        "description": "The commit SHA",
+                                        "type": "string"
+                                    },
+                                    "url": {
+                                        "description": "The URL to the commit",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "commit"
+                        ],
+                        "type": "object"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            },
+            "type": "object"
+        }
+    }
+}

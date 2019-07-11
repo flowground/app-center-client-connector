@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The information for a single iOS device",
+            "required": [
+                "udid",
+                "model"
+            ],
+            "properties": {
+                "udid": {
+                    "type": "string",
+                    "description": "The Unique Device IDentifier of the device"
+                },
+                "model": {
+                    "type": "string",
+                    "description": "The model identifier of the device, in the format iDeviceM,N"
+                },
+                "os_build": {
+                    "type": "string",
+                    "description": "The build number of the last known OS version running on the device"
+                },
+                "os_version": {
+                    "type": "string",
+                    "description": "The last known OS version running on the device"
+                },
+                "serial": {
+                    "type": "string",
+                    "description": "The device's serial number. Always empty or undefined at present."
+                },
+                "imei": {
+                    "type": "string",
+                    "description": "The device's International Mobile Equipment Identity number. Always empty or undefined at present."
+                },
+                "owner_id": {
+                    "type": "string",
+                    "description": "The user ID of the device owner."
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "app_id": {
+            "required": true,
+            "type": "string"
+        },
+        "release_id": {
+            "required": true,
+            "type": "integer"
+        },
+        "token": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

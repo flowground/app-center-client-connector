@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "release_id": {
+            "required": true,
+            "type": "integer"
+        },
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Unique id of the release destination",
+                    "type": "string",
+                    "format": "uuid"
+                }
+            },
+            "required": [
+                "id"
+            ]
+        }
+    }
+}

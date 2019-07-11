@@ -1,0 +1,60 @@
+{
+    "type": "object",
+    "properties": {
+        "build_id": {
+            "required": true,
+            "type": "integer",
+            "minimum": 0,
+            "exclusiveMinimum": true
+        },
+        "owner_name": {
+            "required": true,
+            "type": "string"
+        },
+        "app_name": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "destinations": {
+                    "description": "Array of objects {id:string, type:string} with \"id\" being the distribution group ID, store ID, or tester email, and \"type\" being \"group\", \"store\", or \"tester\"",
+                    "type": "array",
+                    "items": {
+                        "description": "Destination details for distributing build releases",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "store",
+                                    "group",
+                                    "tester"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "type"
+                        ],
+                        "type": "object"
+                    }
+                },
+                "releaseNotes": {
+                    "type": "string",
+                    "description": "The release notes"
+                },
+                "mandatoryUpdate": {
+                    "type": "boolean"
+                },
+                "notifyTesters": {
+                    "type": "boolean",
+                    "default": true
+                }
+            },
+            "type": "object"
+        }
+    }
+}
